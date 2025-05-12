@@ -19,7 +19,10 @@ public class Character {
     }
 
     void block() {
-        System.out.println(name + " blocks and takes half damage next turn!");
+        System.out.println(name + " blocks and takes half damage");
+        int blockAmount = attack / 2;
+        hp -= blockAmount;
+        System.out.println(name + " takes " + blockAmount + " damage! Now at " + hp);
     }
 
     void heal() {

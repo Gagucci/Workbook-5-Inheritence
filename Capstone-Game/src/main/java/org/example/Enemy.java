@@ -6,6 +6,13 @@ public class Enemy extends Character {
         super(name, hp, attack);
     }
 
+    void stealHealth(Character target) {
+        int stealAmount = 5;
+        System.out.println(name + " steals " + stealAmount + " HP from " + target.name + "!");
+        hp += stealAmount;
+        target.hp -= stealAmount;
+    }
+
     void makeMove(Character target) {
 
         int move = (int) (Math.random() * 5);
@@ -17,7 +24,7 @@ public class Enemy extends Character {
                 block();
                 break;
             case 2:
-                heal();
+                stealHealth(target);
                 break;
             case 3:
                 run();
