@@ -10,6 +10,8 @@ public class Main {
         assets.add(new Vehicle("Pickup Truck", "2018-01-01", 30000, "Ford F-150", 2018, 70000));
         assets.add(new House("House", "2015-01-01", 250000, "123 Main St", 1, 2000, 5000));
         assets.add(new House("Vacation Condo", "2017-01-01", 150000, "456 Elm St", 2, 1200, 2000));
+        assets.add(new Cash("Cash", "2023-01-01", 10000));
+        assets.add(new Cash("Savings", "2023-01-01", 5000));
 
 
         for (Asset asset : assets) {

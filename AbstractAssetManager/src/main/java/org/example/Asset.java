@@ -22,7 +22,5 @@ public abstract class Asset {
     public void setDateAcquired(String dateAcquired) { this.dateAcquired = dateAcquired; }
     public void setOriginalCost(double originalCost) { this.originalCost = originalCost; }
 
-    public double getValue() {
-        return originalCost;
-    }
+    public abstract double getValue();
 }
