@@ -30,14 +30,14 @@ public class House extends Asset {
     public double getValue() {
         double ogCost = getOriginalCost();
         double value = 0.0;
-        if (condition == 1) {
-            value = (ogCost + (180.00 * squareFeet)) + (.25 * lotSize);
-        } else if (condition == 2) {
-            value = (ogCost + (130.00 * squareFeet)) + (.25 * lotSize);
-        } else if (condition == 3) {
-            value = (ogCost + (90.00 * squareFeet)) + (.25 * lotSize);
-        } else if (condition == 4) {
-            value = (ogCost + (80.00 * squareFeet)) + (.25 * lotSize);
+        if (getCondition() == 1) {
+            value = (ogCost + (180.00 * getSquareFeet())) + (.25 * getLotSize());
+        } else if (getCondition() == 2) {
+            value = (ogCost + (130.00 * getSquareFeet())) + (.25 * getLotSize());
+        } else if (getCondition() == 3) {
+            value = (ogCost + (90.00 * getSquareFeet())) + (.25 * getLotSize());
+        } else if (getCondition() == 4) {
+            value = (ogCost + (80.00 * getSquareFeet())) + (.25 * getLotSize());
         }
         return value;
     }

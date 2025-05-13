@@ -28,14 +28,15 @@ public class Vehicle extends Asset {
     public void setOdometer(int odometer) { this.odometer = odometer; }
 
     public double getValue() {
-        double ogCost =  getOriginalCost();
+        double ogCost = getOriginalCost();
         String dateAcquired = getDateAcquired();
         LocalDate currentDate = LocalDate.now();
         double value = 0.0;
+
         if (dateAcquired != null) {
             LocalDate acquiredDate = LocalDate.parse(dateAcquired);
             int yearsOwned = currentDate.getYear() - acquiredDate.getYear();
-            if (yearsOwned > 0 && yearsOwned <= 3) {
+            if (yearsOwned >= 0 && yearsOwned <= 3) {
                 value = ogCost - ((ogCost * 0.03) * yearsOwned);
             } else if (yearsOwned > 3 && yearsOwned <= 6) {
                 value = ogCost - ((ogCost * 0.06) * yearsOwned);
@@ -44,8 +45,14 @@ public class Vehicle extends Asset {
             }
         }
 
-        if ( odometer <= 100000 || makeModel.contains("Toyota") || makeModel.contains("Honda"))
-        return value;
+        double finalCost;
+        if (odometer <= 100000 && (!getMakeModel().contains("Toyota") || !getMakeModel().contains("Honda"))) {
+            finalCost = value - (value * 0.25);
+        } else {
+            finalCost = value;
+        }
+
+        return finalCost;
     }
 
 }
